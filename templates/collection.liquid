@@ -1,0 +1,19 @@
+{% paginate collection.products by 30 %} <div class="container main">
+  <div >
+    <h1 class="title-h1">Order your favorite flavors</h1>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 icecream__wrapper"> {% for product in collection.products %} <div
+        class="icecream__holder">
+        <a href="{{ product.url | within: collection }}">
+          <img class="img-fluid" src="{{ product.featured_image.src | img_url: 'large' }}"
+            alt="{{ product.featured_image.alt | escape }}">
+        </a>
+        <h2>{{ product.title }}</h2>
+        <p>{{ product.price | money }}</p> {% unless product.available %}<p class="product-soldout">sold out</p>{%
+        endunless %} <div>
+        </div>
+      </div> {% else %} <p>no matches</p> {% endfor %} {% if paginate.pages > 1 %} {{ paginate | default_pagination }}
+      {% endif %} </div>
+  </div>
+</div> {% endpaginate %}

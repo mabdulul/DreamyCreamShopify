@@ -1,0 +1,49 @@
+<div class="col-sm-12 col-md-12 col-lg-12 FAQ-section-body ">   
+   <div>
+    {% for qu in section.blocks%}
+    <div class="FAQ-accordion">
+      <button type="button" class="accordion__button" onclick="Accordion(this)">{{qu.settings.question}}</button>
+      <div class="accordion__content">
+          <p class="faq-answer">{{qu.settings.answer}}</p>
+      </div>
+    </div>
+     {% endfor %}
+   </div>
+</div>
+
+
+
+
+{% schema %}
+{ 
+    "name": "FAQ", 
+    "class": "FAQ-question",
+   
+"blocks": [
+ {
+     "name": "Question and Answers",
+     "type":  "Question-and-Answers",
+     "settings": [
+    
+     {
+         "id": "question",
+         "type": "text",
+         "label": "Question"
+         
+       },
+       {
+           "id": "answer",
+           "type": "text",
+           "label": "Answer"
+          
+       }
+      
+     ]
+ }
+
+
+]
+    
+
+} 
+{% endschema %}

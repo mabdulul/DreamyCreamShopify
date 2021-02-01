@@ -1,0 +1,41 @@
+<header class="container-fluid">
+    <nav class="nav-holder">
+        <a href="/" class="logo main">
+            <h1 class="nav-logo">Dreamy Cream</h1>
+        </a>
+        <button class="nav__button nav__button--burger" id="burger">{% include 'icon-navicon' %}</button>
+        <div class="nav-links" id="menu">
+            <ul class="nav-items">
+                {% for link in linklists.main-menu.links %}
+                <li><a class="nav-linkslist" href="{{ link.url }}">{{ link.title }} 
+            
+                   
+                </a>
+                {% if link.links != blank %} <button onclick="pullDown(this)" class="nav__button btn-pull"> {% include 'icon-dropdown' %}</button>  {% endif %} 
+                {% if link.links != blank %}
+                  <ul class="nav-child" id="navtouch">
+                    {% for child_link in link.links %}  
+                    <li><a  class="nav-linkslist" href= "{{ child_link.url }}">{{ child_link.title }}</a>
+                    {% if child_link.links != blank %}
+                      <ul class="grandchild">
+                      {% for grandchild_link in child_link.links %}  
+                        <li><a  class="nav-linkslist" href= "{{ grandchild_link.url }}">{{ grandchild_link.title }}</a></li>
+                      {% endfor %}
+                      </ul>
+                    {% endif %}   
+                    </li>
+                    {% endfor %}
+                  </ul> 
+                {% endif %} 
+                </li>
+                {% endfor %}
+                </ul>
+           
+        </div>
+        <a id="shoppingCart" href="/cart" class="shopping-cart "> {% if cart.item_count > 0 %} {{ cart.item_count }} {% endif %} {%
+            include 'icon-cart' %}
+        </a>
+    </nav>
+</header>
+
+

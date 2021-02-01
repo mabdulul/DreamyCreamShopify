@@ -1,0 +1,38 @@
+<div class="nav__title main" id="{{section.settings.id}}" style="color:{{section.settings.text_color}}">
+    <h1>{{section.settings.title}}</h1>
+</div>
+
+{% schema %}
+{
+    "name": "opening text",
+    "class": "opeaning-text-section",
+    "settings": [
+    {
+
+        "id": "title",
+        "type": "text",
+        "label": "Section Title ",
+        "default": "Taste the intensity" 
+
+    },
+    {
+    "type": "color",
+    "id": "text_color",
+    "label": "text",
+    "default": "#ffa5cb" 
+    }
+
+] ,
+ "presets": [
+   {
+  "name": "Title Text",
+  "category":"Store information"
+  }
+]
+}
+{% endschema %}
+
+
+
+
+

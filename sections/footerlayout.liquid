@@ -1,0 +1,44 @@
+<footer class="main" id="footer">
+    <div class="bg footer--wrapper">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 footer ">
+                <a href="/" class="footer--logo">
+                    <h1  class="flogo">{{section.settings.logo}}</h1>
+                </a>
+                <ul> {% for links in section.blocks%} <li><a
+                            href="{{links.settings.link_url}}">{{links.settings.textlink}}</a></li> {% endfor %} </ul>
+            </div>
+        </div>
+    </div>
+</footer> {% schema %} 
+{
+    "name":"FooterLayout",
+    "class":"footerlayout",
+    "settings":[
+       {
+          "type":"text",
+          "id":"logo",
+          "label":"logo",
+          "default":"Logo"
+       }
+    ],
+    "blocks":[
+       {
+          "name":"a link",
+          "type":"links",
+          "settings":[
+             {
+                "type":"text",
+                "id":"textlink",
+                "label":"Link Text",
+                "default":"Link"
+             },
+             {
+                "type":"url",
+                "id":"link_url",
+                "label":"Link Url"
+             }
+          ]
+       }
+    ]
+ } {% endschema %}

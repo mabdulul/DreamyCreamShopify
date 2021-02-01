@@ -1,0 +1,58 @@
+<div class="container-fluid main">
+    <div class="row">
+        <div class="collage">
+            <div class="collage__img-1" style="background-image: url('{{ section.settings.photo1 | img_url: '2048x' }}')"></div>
+            <div class="collage__img-2" style="background-image: url('{{ section.settings.photo2 | img_url: '2048x' }}')"></div>
+            <div class="collage__img-3" style="background-image: url('{{ section.settings.photo3 | img_url: '2048x' }}')" ></div>
+            <div class="collage__img-4" style="background-image: url('{{ section.settings.photo4 | img_url: '2048x' }}')"></div>
+            <div class="collage__img-5" style="background-image: url('{{ section.settings.photo5 | img_url: '2048x' }}')"></div>
+            <div class="collage__img-6" style="background-image: url('{{ section.settings.photo6 | img_url: '2048x' }}')"></div>
+        </div>
+    </div>
+</div>
+
+
+{% schema %}
+{
+    "name": "Gallery",
+    "class": "Header-Gallery",
+    "settings": [
+       {
+        "id": "photo1",
+        "type": "image_picker",
+        "label": "Photo1"
+       },
+       {
+        "id": "photo2",
+        "type": "image_picker",
+        "label": "Photo 2"
+       },
+       {
+        "id": "photo3",
+        "type": "image_picker",
+        "label": "Photo 2"
+       },
+       {
+        "id": "photo4",
+        "type": "image_picker",
+        "label": "Photo 4"
+       },
+       {
+        "id": "photo5",
+        "type": "image_picker",
+        "label": "Photo5"
+       },
+       {
+        "id": "photo6",
+        "type": "image_picker",
+        "label": "Photo 6"
+       }
+    ],
+    "presets": [
+        {
+            "category": "Store information",
+            "name":"gallery"
+        }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,35 @@
+<div class="container main View">
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-6 View-Image"> {% assign current_variant =
+      product.selected_or_first_available_variant %} {% assign featured_image = current_variant.featured_image |
+      default: product.featured_image %} <img src="{{ featured_image | img_url: 'large' }}"
+        alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg" class="img-fluid">
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-6 View-ColumnDescription">
+   <div class="View-Column-items">
+    <h1>{{ product.title }}</h1> 
+    {% if product.available %} 
+    <p class="View-price">
+      {{ current_variant.price | money }}
+    </p>
+    <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+      <select name="id" class="productSelect" id="productSelect"> {% for variant in product.variants %} {% if
+        variant.available %} <option value="{{ variant.id }}">
+          {{ variant.title }} - {{ variant.price | money_with_currency }}
+        </option> {% else %} <option disabled="disabled">
+          {{ variant.title }} - sold out
+        </option> {% endif %} {% endfor %} </select>
+      <label for="Quantity" class="View-Qty">Quantity</label>
+      <input type="number" id="Quantity" name="quantity" value="1" class="View-Qty_Input" min="1">
+      <div class="View-btn">
+        <button type="submit" name="add" class="btn btn-color" id="AddToCart">Add to Cart</button>
+      </div>
+    </form>
+    {% else %}
+    <p class="product-soldout">Sold Out</p>
+    {% endif %} 
+    <div class="View-description">{{ product.description }}</div>
+   </div>
+    </div>
+  </div>
+</div>

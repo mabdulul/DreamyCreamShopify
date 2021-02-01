@@ -1,0 +1,28 @@
+<div class="container-fluid main collage--single" style="background-image: url('{{ section.settings.photo1 | img_url: '2048x' }}')">
+    <div class="row collage--single" >
+        
+    </div>
+</div>
+
+
+
+{% schema %}
+{
+    "name": "Single Image",
+    "class": "Single-Image",
+    "settings": [
+       {
+        "id": "photo1",
+        "type": "image_picker",
+        "label": "Photo1"
+       }
+    
+    ],
+    "presets": [
+        {
+            "category": "Store information",
+            "name":"Single-Image"
+        }
+    ]
+}
+{% endschema %}

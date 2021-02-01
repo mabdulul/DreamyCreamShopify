@@ -1,0 +1,24 @@
+
+<div class="container Contact main">
+	<h1 class="title-h1">{{ page.title }}</h1>
+  <div class="row">
+	<div class="col-sm-12 col-md-12 col-lg-12 Contact-Wrapper"> 
+	  {% form 'contact' %}
+	  Reach out to us! dream@dreamyCream.com
+	  {% if form.posted_successfully? %} Thank you for your contact {% endif %}
+	  {{ form.errors | default_errors }}
+	   <div class="Contact-NameEmail">
+		<label class=" hidden-label" for="ContactFormName">name</label>
+		<input type="text" id="ContactFormName" name="contact[name]" placeholder="Name">
+		<label class=" hidden-label" for="ContactFormEmail" >email</label>
+		<input type="email" id="ContactFormEmail" name="contact[email]" placeholder="Email">
+	   </div>
+	  <label class="hidden-label" for="ContactFormPhone">phone number</label>
+	  <input type="tel" id="ContactFormPhone" name="contact[phone]" placeholder="Phone Number">
+	  <label class=" hidden-label" for="ContactFormMessage">message</label>
+	  <textarea rows="10" id="ContactFormMessage" name="contact[body]" placeholder="Message"></textarea>
+	  <input class="btn btn-color btn-contact" type="submit" value="send">
+	{% endform %}
+	</div>
+  </div>
+  </div>

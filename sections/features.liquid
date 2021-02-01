@@ -1,0 +1,128 @@
+<div class="container features main">
+    <hr />
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            
+            <div class="features__img">
+                {{  section.settings.img  | img_url: '495x' |img_tag }}
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="features__text">
+                <h3>{{section.settings.titleone}}</h3>
+                <p>
+                    {{section.settings.text}}
+                </p>
+                <a href="{{ section.settings.btnlink}}"> <button class="btn btn-color">{{section.settings.btntext}}</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container features main">
+    <div class="row features--two">
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="features__text">
+                <h3>{{section.settings.titletwo}}</h3>
+                <p>
+                    {{section.settings.texttwo}}
+                </p>
+                <a href="{{ section.settings.button_linktwo }}"> <button class="btn btn-color">{{section.settings.button_labeltwo}}</button></a>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="features__img">
+                {{ section.settings.imagetwo  | img_url: '495x' |img_tag }}
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+
+
+
+
+
+{% schema %}
+
+
+{
+    "name": "Image with text",
+    "class": "Image with text",
+    "settings": [
+          {
+            "type": "image_picker",
+            "id": "img",
+            "label": "Image One"
+             
+          },
+          {
+            "type": "text",
+            "id": "titleone",
+            "label": "Heading One",
+            "default": "Add a title or tagline "
+          },
+          {
+              "type": "richtext",
+              "id": "text",
+              "label": "Text One",
+              "default": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.</p>"
+              
+          },
+          {
+              "type": "text",
+              "id": "btntext",
+              "label": "Button label One",
+              "default": "Button"
+          },
+          {
+            "type": "url",
+            "id": "btnlink",
+            "label": "Button link One"
+            
+          },
+          {
+            "type": "image_picker",
+            "id": "imagetwo",
+            "label": "Image Two"
+             
+          },
+          {
+            "type": "text",
+            "id": "titletwo",
+            "label": "Heading Two",
+            "default": "Add a title or tagline "
+          },
+          {
+              "type": "richtext",
+              "id": "texttwo",
+              "label": "Text Two",
+              "default": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.</p>"
+              
+          },
+          {
+              "type": "text",
+              "id": "button_labeltwo",
+              "label": "Button label Two",
+              "default": "Button"
+          },
+          {
+            "type": "url",
+            "id": "button_linktwo",
+            "label": "Button link Two"
+            
+          }
+            
+        ],
+"presets": [
+        {
+            "category": "Store information",
+            "name":"Image with Text"
+          
+    }  
+   ]
+}
+
+
+{% endschema %}
